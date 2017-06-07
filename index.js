@@ -38,24 +38,10 @@ function addUpTo(array, index) {
     }
 }
 
-function maxOf(array) { // Divide and Conquer algorithm
-    // copy the given array 
-    let nums = array.slice();
-
-    // base case: if we're at the last number, return it
-    if (nums.length == 1) { 
-        return nums[0]
-    }
-
-    // check the first two numbers in the array and remove the lesser
-    if (nums[0] < nums[1]) { 
-        nums.splice(0, 1) 
-    } else { 
-        nums.splice(1, 1)
-    }
-
-    // with one less number in the array, call the same function
-    return maxOf(nums)
+function maxOf(nums) { // Divide and Conquer algorithm
+    if (nums.length === 1) { return nums[0] } // base case: if we're at the last number, return it
+    nums[0] < nums[1] ? nums.splice(0, 1) : nums.splice(1, 1) // check the first two numbers in the array and remove the lesser
+    return maxOf(nums) // with one less number in the array, call the same function
 }
 
 function includesNumber(array, number) {
