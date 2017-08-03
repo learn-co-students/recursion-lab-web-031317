@@ -14,6 +14,34 @@ function reverseString(string) {
     return string
   } else {
     let length = string.length - 1
-    return string[length] + reverseString(string.substring(0, length))
+    return string[length] + reverseString(string.substring(0, string.length - 1))
+  }
+}
+
+function isPalindrome(string){
+  if (string.length <=1){
+    return true
+  } else if (string[0] === string[string.length-1]){
+    return isPalindrome(string.substring(1, string.length-1))
+  } else {
+    return false
+  }
+}
+
+function addUpTo(array, index) {
+  if (index < 1){
+    return array[0]
+  } else {
+    return array[0] + addUpTo(array.slice(1), index-1)
+  }
+}
+
+function maxOf(array){
+  if (array.length === 1) {
+    return array[0]
+  } else if (array[0] > array[1]) {
+    return maxOf([array[0]].concat(array.slice(2)))
+  } else {
+    return maxOf(array.slice(1))
   }
 }
